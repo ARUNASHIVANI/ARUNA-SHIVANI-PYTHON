@@ -1,0 +1,82 @@
+class HospitalManagementSystem:
+    def __init__(self):
+        self.patients = {}
+
+    def insert_patient_info(self, patient_id, name, medical_history, billing, staff):
+        self.patients[patient_id] = {'name': name, 'medical_history': medical_history, 'billing': billing, 'staff': staff}
+        print("Patient information inserted successfully.")
+
+    def delete_patient_info(self, patient_id):
+       
+    def display_patient_info(self):
+        if not self.patients:
+            print("No patient records found.")
+        else:
+            for patient_id, info in self.patients.items():
+                print("Patient ID:", patient_id)
+                print("Name:", info['name'])
+                print("Medical History:", info['medical_history'])
+                print("Billing:", info['billing'])
+                print("Staff:", info['staff'])
+                print()
+
+def main():
+    hospital = HospitalManagementSystem()
+
+    while True:
+        print("\nHospital Management System Menu:")
+        print("1. Insert Patient Information")
+        print("2. Delete Patient Information")
+        print("3. Update Patient Information")
+        print("4. Display Patient Information")
+        print("5. Exit")
+ if patient_id in self.patients:
+
+        choice = input("Enter your choice: ")
+
+        if choice == '1':
+            patient_id = input("Enter patient ID: ")
+            name = input("Enter patient name: ")
+            medical_history = input("Enter medical history: ")
+            billing = input("Enter billing information: ")
+            staff = input("Enter staff details: ")
+            hospital.insert_patient_info(patient_id, name, medical_history, billing, staff)
+        elif choice == '2':
+            patient_id = input("Enter patient ID to delete: ")
+            hospital.delete_patient_info(patient_id)
+        elif choice == '3':
+            patient_id = input("Enter patient ID to update: ")
+            name = input("Enter updated name (leave blank to keep unchanged): ")
+            medical_history = input("Enter updated medical history (leave blank to keep unchanged): ")
+            billing = input("Enter updated billing information (leave blank to keep unchanged): ")
+            staff = input("Enter updated staff details (leave blank to keep unchanged): ")
+            hospital.update_patient_info(patient_id, name, medical_history, billing, staff)
+        elif choice == '4':
+            hospital.display_patient_info()
+        elif choice == '5':
+            print("Exiting...")
+            break
+        else:
+            print("Invalid choice. Please try again.")
+
+            del self.patients[patient_id]
+            print("Patient information deleted successfully.")
+        else:
+            print("Patient with ID {} not found.".format(patient_id))
+
+    def update_patient_info(self, patient_id, name=None, medical_history=None, billing=None, staff=None):
+        if patient_id in self.patients:
+            if name:
+                self.patients[patient_id]['name'] = name
+            if medical_history:
+                self.patients[patient_id]['medical_history'] = medical_history
+            if billing:
+                self.patients[patient_id]['billing'] = billing
+            if staff:
+                self.patients[patient_id]['staff'] = staff
+            print("Patient information updated successfully.")
+        else:
+            print("Patient with ID {} not found.".format(patient_id))
+
+if __name__ == "__main__":
+    main()
